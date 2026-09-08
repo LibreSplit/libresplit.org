@@ -31,7 +31,6 @@ export default defineConfig({
     "pnpm-lock.yaml",
     "yarn.lock",
     ".git",
-    ".vscode",
     ".idea",
     ".DS_Store",
     "Thumbs.db",
