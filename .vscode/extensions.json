@@ -5,6 +5,6 @@
     "oxc.oxc-vscode",
     "solidjs-community.solid-snippets",
     "vscode.typescript-language-features",
-	"firefox-devtools.vscode-firefox-debug"
+    "firefox-devtools.vscode-firefox-debug"
   ]
 }

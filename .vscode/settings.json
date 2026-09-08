@@ -5,14 +5,14 @@
   "editor.tabSize": 2,
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
-	"source.format.oxc": "always",
-	"source.fixAll.oxc": "always"
+    "source.format.oxc": "always",
+    "source.fixAll.oxc": "always"
   },
   "editor.quickSuggestions": {
     "strings": "on"
   },
   "files.associations": {
-	"*.css": "tailwindcss"
+    "*.css": "tailwindcss"
   },
   "tailwindCSS.classAttributes": ["class"],
   "tailwindCSS.experimental.configFile": "src/index.css",
@@ -21,9 +21,9 @@
   "js/ts.tsdk.promptToUseWorkspaceVersion": true,
   "oxc.fixKind": "safe_fix",
   "oxc.lint.customization": {
-	"no-unused-vars": {
-		"autofix": false
-	}
+    "no-unused-vars": {
+      "autofix": false
+    }
   },
   "oxc.lint.run": "onSave",
   "oxc.requireConfig": true
