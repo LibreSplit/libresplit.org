@@ -49,7 +49,7 @@ export function Docs() {
         <For each={docs}>
           {(doc) => (
             <a href={doc.to}>
-              <Card class="h-full transition hover:border-primary hover:shadow-lg">
+              <Card class="h-full transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:border-primary/40 hover:shadow-lg">
                 <CardHeader>
                   <CardTitle>{doc.title}</CardTitle>
                   <CardDescription>{doc.description}</CardDescription>
