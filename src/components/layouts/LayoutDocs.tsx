@@ -7,10 +7,13 @@ import { Button } from "../ui/button";
 export function LayoutDocs(props: ParentProps) {
   return (
     <div>
-      <Button variant="outline" as={A} href="/docs">
-        <ArrowLeft />
-        <p>Docs</p>
-      </Button>
+      <nav class="mb-6">
+        <Button variant="outline" as={A} href="/docs">
+          <ArrowLeft />
+          <p>Docs</p>
+        </Button>
+      </nav>
+
       {props.children}
     </div>
   );
