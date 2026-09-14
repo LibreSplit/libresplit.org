@@ -8,7 +8,12 @@ export function LayoutDocs(props: ParentProps) {
   return (
     <div>
       <nav class="mb-6">
-        <Button variant="outline" as={A} href="/docs">
+        <Button
+          variant="ghost"
+          class="-ml-2 text-muted-foreground hover:text-foreground"
+          as={A}
+          href="/docs"
+        >
           <ArrowLeft />
           <p>Docs</p>
         </Button>
