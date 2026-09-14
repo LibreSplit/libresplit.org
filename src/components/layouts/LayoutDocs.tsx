@@ -10,6 +10,7 @@ export function LayoutDocs(props: ParentProps) {
       <nav class="mb-6">
         <Button
           variant="ghost"
+          size="sm"
           class="-ml-2 text-muted-foreground hover:text-foreground"
           as={A}
           href="/docs"
