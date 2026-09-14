@@ -12,6 +12,7 @@ import { Themes } from "./app/docs/themes";
 import { Troubleshooting } from "./app/docs/troubleshooting";
 import { Home } from "./app/home";
 import { NotFound } from "./app/not-found";
+import { LayoutDocs } from "./components/layouts/LayoutDocs";
 
 export default function AppRouter() {
   return (
@@ -22,12 +23,14 @@ export default function AppRouter() {
       <Route path="/converter" component={Converter} />
 
       {/* Documentation pages pulled from GitHub. */}
-      <Route path="/docs/auto-splitters.md" component={AutoSplitters} />
-      <Route path="/docs/auto-splitter-tips.md" component={AutoSplitterTips} />
-      <Route path="/docs/settings-keybinds.md" component={SettingsKeybinds} />
-      <Route path="/docs/split-files.md" component={SplitFiles} />
-      <Route path="/docs/themes.md" component={Themes} />
-      <Route path="/docs/troubleshooting.md" component={Troubleshooting} />
+      <Route path="/docs" component={LayoutDocs}>
+        <Route path="/auto-splitters.md" component={AutoSplitters} />
+        <Route path="/auto-splitter-tips.md" component={AutoSplitterTips} />
+        <Route path="/settings-keybinds.md" component={SettingsKeybinds} />
+        <Route path="/split-files.md" component={SplitFiles} />
+        <Route path="/themes.md" component={Themes} />
+        <Route path="/troubleshooting.md" component={Troubleshooting} />
+      </Route>
 
       {/* Fall back on app's 404 page. This is because of the SPA routing trick with 404.html used in GitHub Pages. */}
       <Route path="*404" component={NotFound} />
