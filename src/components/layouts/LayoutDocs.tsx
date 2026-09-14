@@ -1,7 +1,11 @@
+import type { ParentProps } from "solid-js";
+
+import { AppDocsBackButton } from "../libresplit/AppDocsBackButton";
+
 export function LayoutDocs(props: ParentProps) {
   return (
     <div>
-      <span>test</span>
+      <AppDocsBackButton />
       {props.children}
     </div>
   );
