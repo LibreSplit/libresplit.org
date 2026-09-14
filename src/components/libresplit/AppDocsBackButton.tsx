@@ -7,7 +7,7 @@ export function AppDocsBackButton() {
   const navigate = useNavigate();
 
   return (
-    <Button variant="outline" onClick={() => navigate(-1)}>
+    <Button variant="outline" onClick={() => navigate("/docs")}>
       <ArrowLeft />
       <p>Docs</p>
     </Button>
