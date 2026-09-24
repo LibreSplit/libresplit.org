@@ -1,15 +1,30 @@
-import init, { convert } from "@libresplit/converter";
+import { RadioGroup } from "@kobalte/core/radio-group";
+import init, { ComparisonMethod, convert } from "@libresplit/converter";
 import wasmUrl from "@libresplit/converter/converter_bg.wasm?url";
-import { Show, createSignal } from "solid-js";
+import { For, Show, createSignal } from "solid-js";
 
 import AppFileSelect from "@/components/libresplit/AppFileSelect";
 import { AppSplitPreview } from "@/components/libresplit/AppSplitPreview";
 import { Button } from "@/components/ui/button";
 
+const comparisonMethods = [
+  {
+    value: ComparisonMethod.RealTime,
+    label: "Real Time",
+  },
+  {
+    value: ComparisonMethod.GameTime,
+    label: "Game Time",
+  },
+];
+
 export function Converter() {
   const [selectedFile, setSelectedFile] = createSignal<File | null>(null);
   const [fileText, setFileText] = createSignal<string | null>(null);
   const [result, setResult] = createSignal<string | null>(null);
+  const [comparisonMethod, setComparisonMethod] = createSignal<
+    (typeof ComparisonMethod)[keyof typeof ComparisonMethod]
+  >(ComparisonMethod.RealTime);
 
   const handleSelectChange = async (file: File | null) => {
     setSelectedFile(file);
@@ -32,7 +47,7 @@ export function Converter() {
     try {
       const text = await file.text();
       await init({ module_or_path: wasmUrl });
-      const converted = convert(text);
+      const converted = convert(text, comparisonMethod());
       setResult(converted);
     } catch (error) {
       console.error("Error processing file: ", error);
@@ -56,8 +71,45 @@ export function Converter() {
     URL.revokeObjectURL(url);
   };
 
+  const handleComparisonMethodChange = (value: string) => {
+    const option = comparisonMethods.find(
+      (method) => String(method.value) === value,
+    );
+
+    if (option) {
+      setComparisonMethod(option.value);
+    }
+  };
+
   return (
     <div class="flex w-full flex-col gap-4 md:min-h-0 md:flex-1 md:overflow-hidden">
+      <div class="shrink-0">
+        <RadioGroup
+          value={String(comparisonMethod())}
+          onChange={handleComparisonMethodChange}
+          class="space-y-3"
+        >
+          <RadioGroup.Label>Comparison Method</RadioGroup.Label>
+          <div class="mt-2 flex flex-wrap gap-x-5 gap-y-2">
+            <For each={comparisonMethods}>
+              {(option) => (
+                <RadioGroup.Item
+                  value={String(option.value)}
+                  class="group flex cursor-pointer items-center gap-2 outline-none"
+                >
+                  <RadioGroup.ItemInput />
+                  <RadioGroup.ItemControl class="flex size-5 items-center justify-center rounded-full border border-input bg-background transition-colors group-focus-visible:ring-[3px] group-focus-visible:ring-ring/50 group-data-checked:border-primary group-data-checked:bg-primary">
+                    <RadioGroup.ItemIndicator class="size-2 rounded-full bg-primary-foreground" />
+                  </RadioGroup.ItemControl>
+                  <RadioGroup.ItemLabel class="cursor-pointer text-sm">
+                    {option.label}
+                  </RadioGroup.ItemLabel>
+                </RadioGroup.Item>
+              )}
+            </For>
+          </div>
+        </RadioGroup>
+      </div>
       <div class="shrink-0">
         <AppFileSelect
           label="Select LiveSplit file:"
