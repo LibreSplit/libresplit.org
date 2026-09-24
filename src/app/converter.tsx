@@ -89,7 +89,7 @@ export function Converter() {
           onChange={handleComparisonMethodChange}
           class="space-y-3"
         >
-          <RadioGroup.Label>Comparison Method</RadioGroup.Label>
+          <RadioGroup.Label>Comparison Method:</RadioGroup.Label>
           <div class="mt-2 flex flex-wrap gap-x-5 gap-y-2">
             <For each={comparisonMethods}>
               {(option) => (
