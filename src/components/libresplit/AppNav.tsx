@@ -70,13 +70,13 @@ function MobileNavigation(props: NavigationProps) {
     ),
   );
 
-  onMount(() => {
-    const closeWhenHidden = () => {
-      if (mobileNavigationRef?.getClientRects().length === 0) {
-        setIsOpen(false);
-      }
-    };
+  const closeWhenHidden = () => {
+    if (mobileNavigationRef?.getClientRects().length === 0) {
+      setIsOpen(false);
+    }
+  };
 
+  onMount(() => {
     window.addEventListener("resize", closeWhenHidden, { passive: true });
     onCleanup(() => window.removeEventListener("resize", closeWhenHidden));
   });
