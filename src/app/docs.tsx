@@ -1,64 +1,67 @@
 import { For } from "solid-js";
 
 import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
+    Card,
+    CardDescription,
+    CardHeader,
+    CardTitle,
 } from "@/components/ui/card";
 
 const docs = [
-  {
-    title: "Auto Splitters",
-    description: "Documentation for creating auto splitters for LibreSplit.",
-    to: "/docs/auto-splitters.md",
-  },
-  {
-    title: "Auto Splitter Tips",
-    description: "Tips for creating auto splitters for LibreSplit",
-    to: "/docs/auto-splitter-tips.md",
-  },
-  {
-    title: "Settings and Keybinds",
-    description: "Customize controls and behavior.",
-    to: "/docs/settings-keybinds.md",
-  },
-  {
-    title: "Split Files",
-    description: "JSON split file documentation.",
-    to: "/docs/split-files.md",
-  },
-  {
-    title: "Themes",
-    description: "Style the app to your liking.",
-    to: "/docs/themes.md",
-  },
-  {
-    title: "Troubleshooting",
-    description: "Fix common issues and edge cases.",
-    to: "/docs/troubleshooting.md",
-  },
+    {
+        title: "Auto Splitters",
+        description:
+            "Documentation for creating auto splitters for LibreSplit.",
+        to: "/docs/auto-splitters.md",
+    },
+    {
+        title: "Auto Splitter Tips",
+        description: "Tips for creating auto splitters for LibreSplit",
+        to: "/docs/auto-splitter-tips.md",
+    },
+    {
+        title: "Settings and Keybinds",
+        description: "Customize controls and behavior.",
+        to: "/docs/settings-keybinds.md",
+    },
+    {
+        title: "Split Files",
+        description: "JSON split file documentation.",
+        to: "/docs/split-files.md",
+    },
+    {
+        title: "Themes",
+        description: "Style the app to your liking.",
+        to: "/docs/themes.md",
+    },
+    {
+        title: "Troubleshooting",
+        description: "Fix common issues and edge cases.",
+        to: "/docs/troubleshooting.md",
+    },
 ];
 
 export function Docs() {
-  return (
-    <div class="w-full">
-      <h1 class="mb-8 text-3xl font-bold">Documentation</h1>
+    return (
+        <div class="w-full">
+            <h1 class="mb-8 text-3xl font-bold">Documentation</h1>
 
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <For each={docs}>
-          {(doc) => (
-            <a href={doc.to}>
-              <Card class="h-full transition-[border-color,box-shadow,translate,background-color] duration-200 hover:-translate-y-1 hover:border-primary/40 hover:bg-accent/30 hover:shadow-lg">
-                <CardHeader>
-                  <CardTitle>{doc.title}</CardTitle>
-                  <CardDescription>{doc.description}</CardDescription>
-                </CardHeader>
-              </Card>
-            </a>
-          )}
-        </For>
-      </div>
-    </div>
-  );
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <For each={docs}>
+                    {(doc) => (
+                        <a href={doc.to}>
+                            <Card class="h-full transition-[border-color,box-shadow,translate,background-color] duration-200 hover:-translate-y-1 hover:border-primary/40 hover:bg-accent/30 hover:shadow-lg">
+                                <CardHeader>
+                                    <CardTitle>{doc.title}</CardTitle>
+                                    <CardDescription>
+                                        {doc.description}
+                                    </CardDescription>
+                                </CardHeader>
+                            </Card>
+                        </a>
+                    )}
+                </For>
+            </div>
+        </div>
+    );
 }
