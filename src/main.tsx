@@ -11,14 +11,14 @@ import AppRouter from "./router";
 const queryClient = new QueryClient();
 
 render(
-  () => (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <Router root={App}>
-          <AppRouter />
-        </Router>
-      </ThemeProvider>
-    </QueryClientProvider>
-  ),
-  document.getElementById("root")!,
+    () => (
+        <QueryClientProvider client={queryClient}>
+            <ThemeProvider>
+                <Router root={App}>
+                    <AppRouter />
+                </Router>
+            </ThemeProvider>
+        </QueryClientProvider>
+    ),
+    document.getElementById("root")!,
 );

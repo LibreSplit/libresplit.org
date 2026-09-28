@@ -1,10 +1,10 @@
 {
-  "recommendations": [
-    "antfu.goto-alias",
-    "bradlc.vscode-tailwindcss",
-    "oxc.oxc-vscode",
-    "solidjs-community.solid-snippets",
-    "vscode.typescript-language-features",
-    "firefox-devtools.vscode-firefox-debug"
-  ]
+    "recommendations": [
+        "antfu.goto-alias",
+        "bradlc.vscode-tailwindcss",
+        "oxc.oxc-vscode",
+        "solidjs-community.solid-snippets",
+        "vscode.typescript-language-features",
+        "firefox-devtools.vscode-firefox-debug"
+    ]
 }

@@ -5,16 +5,16 @@ import { StepBuildCommand } from "@/app/installation/BuildWizard/StepBuildComman
 import type { BuildStep } from "@/app/installation/BuildWizard/steps";
 
 export interface StepContentProps {
-  step: BuildStep;
+    step: BuildStep;
 }
 
 export function StepContent(props: StepContentProps) {
-  return (
-    <Show
-      when={props.step.content !== undefined}
-      fallback={<StepBuildCommand step={props.step} />}
-    >
-      <Dynamic component={props.step.content} />
-    </Show>
-  );
+    return (
+        <Show
+            when={props.step.content !== undefined}
+            fallback={<StepBuildCommand step={props.step} />}
+        >
+            <Dynamic component={props.step.content} />
+        </Show>
+    );
 }

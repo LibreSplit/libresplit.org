@@ -15,25 +15,31 @@ import { NotFound } from "./app/not-found";
 import { LayoutDocs } from "./components/layouts/LayoutDocs";
 
 export default function AppRouter() {
-  return (
-    <>
-      <Route path="/" component={Home} />
-      <Route path="/installation" component={Installation} />
-      <Route path="/docs" component={Docs} />
-      <Route path="/converter" component={Converter} />
+    return (
+        <>
+            <Route path="/" component={Home} />
+            <Route path="/installation" component={Installation} />
+            <Route path="/docs" component={Docs} />
+            <Route path="/converter" component={Converter} />
 
-      {/* Documentation pages pulled from GitHub. */}
-      <Route path="/docs" component={LayoutDocs}>
-        <Route path="/auto-splitters.md" component={AutoSplitters} />
-        <Route path="/auto-splitter-tips.md" component={AutoSplitterTips} />
-        <Route path="/settings-keybinds.md" component={SettingsKeybinds} />
-        <Route path="/split-files.md" component={SplitFiles} />
-        <Route path="/themes.md" component={Themes} />
-        <Route path="/troubleshooting.md" component={Troubleshooting} />
-      </Route>
+            {/* Documentation pages pulled from GitHub. */}
+            <Route path="/docs" component={LayoutDocs}>
+                <Route path="/auto-splitters.md" component={AutoSplitters} />
+                <Route
+                    path="/auto-splitter-tips.md"
+                    component={AutoSplitterTips}
+                />
+                <Route
+                    path="/settings-keybinds.md"
+                    component={SettingsKeybinds}
+                />
+                <Route path="/split-files.md" component={SplitFiles} />
+                <Route path="/themes.md" component={Themes} />
+                <Route path="/troubleshooting.md" component={Troubleshooting} />
+            </Route>
 
-      {/* Fall back on app's 404 page. This is because of the SPA routing trick with 404.html used in GitHub Pages. */}
-      <Route path="*404" component={NotFound} />
-    </>
-  );
+            {/* Fall back on app's 404 page. This is because of the SPA routing trick with 404.html used in GitHub Pages. */}
+            <Route path="*404" component={NotFound} />
+        </>
+    );
 }
