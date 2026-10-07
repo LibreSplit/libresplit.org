@@ -1,5 +1,9 @@
 import { RadioGroup } from "@kobalte/core/radio-group";
-import init, { ComparisonMethod, convert } from "@libresplit/converter";
+import init, {
+    ComparisonMethod,
+    convert,
+    convert_history,
+} from "@libresplit/converter";
 import wasmUrl from "@libresplit/converter/converter_bg.wasm?url";
 import { For, Show, createSignal } from "solid-js";
 
@@ -55,6 +59,31 @@ export function Converter() {
         }
     };
 
+    const handleHistoryDownload = async () => {
+        const file = selectedFile();
+        if (!file) {
+            alert("Please select a file before submitting!");
+            return;
+        }
+
+        try {
+            const text = await file.text();
+            await init({ module_or_path: wasmUrl });
+            const fileName = file.name.replace(/\.[^/.]+$/, "");
+
+            const url = URL.createObjectURL(convert_history(text, fileName));
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = `${fileName}.zip`;
+            link.click();
+            link.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 0);
+        } catch (error) {
+            console.error("Error processing file: ", error);
+            alert("Failed to process file. See console for details.");
+        }
+    };
+
     const handleDownload = () => {
         const converted = result();
         const file = selectedFile();
@@ -68,7 +97,8 @@ export function Converter() {
         link.href = url;
         link.download = fileName;
         link.click();
-        URL.revokeObjectURL(url);
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 0);
     };
 
     const handleComparisonMethodChange = (value: string) => {
@@ -139,6 +169,14 @@ export function Converter() {
                     disabled={!result()}
                 >
                     Download Splits
+                </Button>
+                <Button
+                    type="button"
+                    variant="secondary"
+                    onClick={handleHistoryDownload}
+                    disabled={!result()}
+                >
+                    Download Splits History
                 </Button>
             </div>
 
