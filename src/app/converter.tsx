@@ -176,7 +176,7 @@ export function Converter() {
                     onClick={handleHistoryDownload}
                     disabled={!result()}
                 >
-                    Download Splits History
+                    Download Attempt History
                 </Button>
             </div>
 
