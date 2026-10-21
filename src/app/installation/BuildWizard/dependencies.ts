@@ -36,9 +36,9 @@ export const DEPENDENCIES = [
         url: "https://jansson.readthedocs.io/",
     },
     {
-        name: "LuaJIT",
+        name: "Lua",
         purpose: "Runs Lua auto splitters",
-        url: "https://luajit.org/",
+        url: "https://www.lua.org/",
     },
     {
         name: "OpenSSL",
@@ -85,13 +85,13 @@ export const DISTRO_DEPENDENCIES = [
             "gtk4-devel",
             "jansson-devel",
             "libX11-devel",
-            "luajit-devel",
+            "lua-devel",
             "meson",
             "openssl-devel",
         ],
         optionalPackages: ["glib-networking", "gvfs"],
         requiredCommand:
-            "sudo dnf install binutils gcc curl gtk4-devel jansson-devel libX11-devel luajit-devel meson openssl-devel",
+            "sudo dnf install binutils gcc curl gtk4-devel jansson-devel libX11-devel lua-devel meson openssl-devel",
         optionalCommand: "sudo dnf install glib-networking gvfs",
         packageIndexUrl: "https://packages.fedoraproject.org/",
         packageUrl: (packageName) =>
@@ -106,7 +106,7 @@ export const DISTRO_DEPENDENCIES = [
             "curl",
             "libgtk-4-dev",
             "libjansson-dev",
-            "libluajit-5.1-dev",
+            "liblua5.4-dev",
             "libssl-dev",
             "libx11-dev",
             "meson",
@@ -114,7 +114,7 @@ export const DISTRO_DEPENDENCIES = [
         optionalPackages: ["glib-networking", "gvfs"],
         requiredCommand: [
             "sudo apt update",
-            "sudo apt install build-essential curl libgtk-4-dev libjansson-dev libluajit-5.1-dev libssl-dev libx11-dev meson",
+            "sudo apt install build-essential curl libgtk-4-dev libjansson-dev liblua5.4-dev libssl-dev libx11-dev meson",
         ],
         optionalCommand: "sudo apt install glib-networking gvfs",
         packageIndexUrl: "https://packages.debian.org/",
@@ -131,13 +131,13 @@ export const DISTRO_DEPENDENCIES = [
             "gtk4",
             "jansson",
             "libx11",
-            "luajit",
+            "lua54",
             "meson",
             "openssl",
         ],
         optionalPackages: ["glib-networking", "gvfs"],
         requiredCommand:
-            "sudo pacman -S --needed base-devel curl gtk4 jansson libx11 luajit meson openssl",
+            "sudo pacman -S --needed base-devel curl gtk4 jansson libx11 lua54 meson openssl",
         optionalCommand: "sudo pacman -S --needed glib-networking gvfs",
         packageIndexUrl: "https://archlinux.org/packages/",
         packageUrl: (packageName) =>
@@ -155,14 +155,14 @@ export const DISTRO_DEPENDENCIES = [
             "gtk4",
             "libx11",
             "jansson",
-            "luajit",
+            "lua5_4",
             "openssl",
         ],
         optionalPackages: ["gvfs", "glib-networking"],
         requiredCommand:
-            "nix-shell -p curl meson ninja pkg-config gtk4 libx11 jansson luajit openssl",
+            "nix-shell -p curl meson ninja pkg-config gtk4 libx11 jansson lua5_4 openssl",
         optionalCommand:
-            "nix-shell -p curl meson ninja pkg-config gtk4 libx11 jansson luajit openssl gvfs glib-networking",
+            "nix-shell -p curl meson ninja pkg-config gtk4 libx11 jansson lua5_4 openssl gvfs glib-networking",
         instructions:
             "Choose one temporary development shell before following the build steps. Nix's standard environment supplies the compiler and linker; the second shell adds the optional web-icon packages.",
         packageIndexUrl: "https://search.nixos.org/packages",
