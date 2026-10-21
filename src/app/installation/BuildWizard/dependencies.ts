@@ -106,7 +106,7 @@ export const DISTRO_DEPENDENCIES = [
             "curl",
             "libgtk-4-dev",
             "libjansson-dev",
-            "liblua-5.4-dev",
+            "liblua5.4-dev",
             "libssl-dev",
             "libx11-dev",
             "meson",
@@ -114,7 +114,7 @@ export const DISTRO_DEPENDENCIES = [
         optionalPackages: ["glib-networking", "gvfs"],
         requiredCommand: [
             "sudo apt update",
-            "sudo apt install build-essential curl libgtk-4-dev libjansson-dev liblua-5.4-dev libssl-dev libx11-dev meson",
+            "sudo apt install build-essential curl libgtk-4-dev libjansson-dev liblua5.4-dev libssl-dev libx11-dev meson",
         ],
         optionalCommand: "sudo apt install glib-networking gvfs",
         packageIndexUrl: "https://packages.debian.org/",
