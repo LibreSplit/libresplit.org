@@ -110,6 +110,29 @@ paru -S libresplit-git`}
                     Latest Release
                 </a>
                 <p>
+                    To keep LibreSplit up to date, we recommend registering the
+                    AppImage with an AppImage manager like{" "}
+                    <a
+                        class="text-primary underline underline-offset-4 hover:text-primary/80"
+                        href="https://flathub.org/en/apps/it.mijorus.gearlever"
+                        target="_blank"
+                    >
+                        Gear Lever.
+                    </a>
+                </p>
+                <p>
+                    <a
+                        class="text-primary underline underline-offset-4 hover:text-primary/80"
+                        href="https://flathub.org/en/apps/it.mijorus.gearlever"
+                        target="_blank"
+                    >
+                        Gear Lever
+                    </a>{" "}
+                    can help manage your AppImages and detect when your
+                    "installed" version is out of date, and download new updates
+                    for you.
+                </p>
+                <p>
                     If an AppImage is not suitable then you may also download
                     the packaged source from the release above and follow the
                     build instructions below to build LibreSplit for your
